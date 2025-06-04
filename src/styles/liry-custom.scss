@@ -1,0 +1,45 @@
+// 隐藏版滚动条的宽度，同时在左侧用padding补偿
+$liry-scrollbar-width: 8px;
+
+// 隐藏滚动条，然后只在滚动的时候出现透明度50%的滚动条
+.liry-hide-scrollbar {
+  overflow-y: auto;
+  padding-left: $liry-scrollbar-width;
+  &::-webkit-scrollbar {
+    width: $liry-scrollbar-width;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hwb(0 15% 84% / 0);
+    border-radius: 4px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  &.is-scrolling::-webkit-scrollbar-thumb {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.363) transparent;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.liry-hover:hover {
+  box-shadow: 3px 3px 10px rgba(40, 43, 70, 0.363);
+  transform: translateY(-5px);
+  transform: translateX(-5px);
+  transform: translateZ(-5px);
+}

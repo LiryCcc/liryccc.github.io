@@ -1,0 +1,42 @@
+{
+  "name": "liry-main-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "check-format": "prettier --check --cache .",
+    "dev": "next dev --port 36545",
+    "format": "prettier --write --cache .",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@liry-ccc/common-config": "^1.0.2",
+    "ahooks": "^3.8.5",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
+    "next": "15.3.3",
+    "normalize.css": "^8.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@types/node": "^22.15.29",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "15.3.3",
+    "next-rspack": "^15.3.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-packagejson": "^2.5.15",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "sass": "^1.89.1",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3"
+  }
+}
