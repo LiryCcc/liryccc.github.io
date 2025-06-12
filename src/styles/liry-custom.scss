@@ -2,6 +2,12 @@
 $liry-scrollbar-width: 8px;
 $liry-hover-color: rgba(40, 43, 70, 0.363);
 
+$liry-dark-color-1: #220e25;
+$liry-dark-color-2: #321d3b;
+$liry-dark-color-3: #30564d;
+$liry-dark-color-4: #599e8e;
+$liry-dark-color-5: #8fffe5;
+
 // 隐藏滚动条，然后只在滚动的时候出现透明度50%的滚动条
 .liry-hide-scrollbar {
   overflow-y: auto;
