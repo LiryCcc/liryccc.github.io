@@ -43,6 +43,9 @@ jobs:
       - name: check code format
         run: pnpm check-format
 
+      - name: check css style
+        run: pnpm check-style
+
       - name: lint code
         run: pnpm lint
 

@@ -1,7 +1,6 @@
 // 隐藏版滚动条的宽度，同时在左侧用padding补偿
 $liry-scrollbar-width: 8px;
-$liry-hover-color: rgba(40, 43, 70, 0.363);
-
+$liry-hover-color: rgb(40 43 70 / 36.3%);
 $liry-dark-color-1: #220e25;
 $liry-dark-color-2: #321d3b;
 $liry-dark-color-3: #30564d;
@@ -12,6 +11,7 @@ $liry-dark-color-5: #8fffe5;
 .liry-hide-scrollbar {
   overflow-y: auto;
   padding-left: $liry-scrollbar-width;
+
   &::-webkit-scrollbar {
     width: $liry-scrollbar-width;
     background-color: transparent;
@@ -22,7 +22,7 @@ $liry-dark-color-5: #8fffe5;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: hwb(0 15% 84% / 0);
+    background-color: hwb(0deg 15% 84% / 0%);
     border-radius: 4px;
     visibility: hidden;
     opacity: 0;
@@ -40,7 +40,7 @@ $liry-dark-color-5: #8fffe5;
   }
 
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.363) transparent;
+  scrollbar-color: rgb(0 0 0 / 36.3%) transparent;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 

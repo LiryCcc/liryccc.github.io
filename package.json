@@ -6,6 +6,7 @@
   "scripts": {
     "build": "next build",
     "check-format": "prettier --check --cache .",
+    "check-style": "stylelint '**/*.{css,scss}'",
     "dev": "next dev --port 36545",
     "format": "prettier --write --cache .",
     "lint": "next lint",
@@ -37,6 +38,8 @@
     "prettier-plugin-packagejson": "^2.5.15",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "sass": "^1.89.1",
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard-scss": "^15.0.1",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3"
   }
