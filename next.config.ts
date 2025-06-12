@@ -1,13 +1,19 @@
 import type { NextConfig } from 'next';
-import withRspack from 'next-rspack';
 
-const config: NextConfig = {
+const defineConfig = (config: NextConfig) => {
+  return config;
+};
+
+const config = defineConfig({
   output: 'export',
   transpilePackages: [],
   reactStrictMode: true,
+  experimental: {
+    esmExternals: true
+  },
   productionBrowserSourceMaps: true
-};
+});
 
-const nextConfig = withRspack(config);
+const nextConfig = config;
 
 export default nextConfig;

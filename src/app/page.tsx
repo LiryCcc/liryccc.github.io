@@ -1,4 +1,10 @@
+import { createMeta } from '@/utils/metadata';
 import classNames from 'classnames';
+
+const metadata = createMeta({
+  title: 'Liry Main Site',
+  description: "Liry's main site"
+});
 
 const Home = () => {
   return (
@@ -18,3 +24,4 @@ const Home = () => {
 };
 
 export default Home;
+export { metadata };
