@@ -1,3 +1,4 @@
+import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
 
 const defineConfig = (config: NextConfig) => {
@@ -5,6 +6,8 @@ const defineConfig = (config: NextConfig) => {
 };
 
 const config = defineConfig({
+  pageExtensions: ['tsx', 'ts', 'md', 'mdx'],
+  images: {},
   output: 'export',
   transpilePackages: [],
   reactStrictMode: true,
@@ -14,6 +17,6 @@ const config = defineConfig({
   productionBrowserSourceMaps: true
 });
 
-const nextConfig = config;
+const nextConfig = createMDX({})(config);
 
 export default nextConfig;
