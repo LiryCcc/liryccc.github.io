@@ -1,4 +1,3 @@
-import { OnlyChildrenFC } from '@/typings/components';
 import { createMeta } from '@/utils/metadata';
 
 const metadata = createMeta({
@@ -6,7 +5,7 @@ const metadata = createMeta({
   description: "Liry's main site"
 });
 
-const Home: OnlyChildrenFC = ({ children }) => {
+const Home = () => {
   return <></>;
 };
 
