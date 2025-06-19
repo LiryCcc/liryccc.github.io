@@ -1,10 +1,13 @@
 import '@/app/globals.css';
+import logo from '@/assets/logo.jpg';
 import LiryProvider from '@/components/providers';
+import { LIRY_SITES } from '@/configs';
 import type { OnlyChildrenFC } from '@/typings/components';
 import cn from 'classnames';
+import Link from 'next/link';
 import s from './layout.module.scss';
 
-const RootLayout: OnlyChildrenFC = ({ children }) => {
+const RootLayout: OnlyChildrenFC = () => {
   return (
     <html lang={'en'}>
       <head>
@@ -14,10 +17,16 @@ const RootLayout: OnlyChildrenFC = ({ children }) => {
       <body>
         <LiryProvider>
           <header className={cn(s.header)}>
-            {Array.from(Array(100).keys()).map((item) => {
-              return <div key={item}>{item}</div>;
+            <img className={cn(s.logo)} src={logo.src} alt={'logo'} />
+            {LIRY_SITES.map((site) => {
+              return (
+                <Link key={site.key} href={site.url}>
+                  {site.comment || site.key}
+                </Link>
+              );
             })}
           </header>
+          {/* <main>{children}</main> */}
         </LiryProvider>
       </body>
     </html>

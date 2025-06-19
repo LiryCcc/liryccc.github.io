@@ -8,7 +8,7 @@ $liry-dark-color-4: #599e8e;
 $liry-dark-color-5: #8fffe5;
 
 // 隐藏滚动条，然后只在滚动的时候出现透明度50%的滚动条
-.liry-hide-scrollbar {
+@mixin liry-hide-scrollbar {
   overflow-y: auto;
   padding-left: $liry-scrollbar-width;
 
@@ -44,9 +44,11 @@ $liry-dark-color-5: #8fffe5;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-.liry-hover:hover {
-  box-shadow: 3px 3px 10px $liry-hover-color;
-  transform: translateY(-5px);
-  transform: translateX(-5px);
-  transform: translateZ(-5px);
+@mixin liry-hover {
+  &:hover {
+    box-shadow: 3px 3px 10px $liry-hover-color;
+    transform: translateY(-5px);
+    transform: translateX(-5px);
+    transform: translateZ(-5px);
+  }
 }

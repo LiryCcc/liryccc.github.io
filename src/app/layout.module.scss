@@ -1,9 +1,9 @@
-@use '@/styles/liry-custom.scss';
+@use '@/styles/liry-custom.scss' as mixins;
 
 .header {
-  background: liry-custom.$liry-dark-color-3;
+  background: mixins.$liry-dark-color-3;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 60px;
   & > * {
     height: 100%;
@@ -11,4 +11,14 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+.logo {
+  @include mixins.liry-hover;
+  box-sizing: border-box;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 10px;
 }
