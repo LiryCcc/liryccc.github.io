@@ -13,6 +13,7 @@ const config = defineConfig({
   experimental: {
     esmExternals: true
   },
+  compiler: {},
   productionBrowserSourceMaps: true
 });
 
