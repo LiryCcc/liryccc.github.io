@@ -1,5 +1,6 @@
-@import '@/styles/liry-custom.scss';
+@use '@/styles/liry-custom.scss';
+
 .header {
-  background: $liry-dark-color-1;
+  background: liry-custom.$liry-dark-color-1;
   height: 20px;
 }
