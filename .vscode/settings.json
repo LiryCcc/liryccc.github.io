@@ -1,6 +1,6 @@
 {
   "files.associations": {
-    "*.css": "tailwindcss",
+    // "*.css": "tailwindcss",
     "*.scss": "scss"
   },
   "launch": {}

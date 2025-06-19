@@ -2,7 +2,7 @@ import '@/app/globals.css';
 import LiryProvider from '@/components/providers';
 import type { OnlyChildrenFC } from '@/typings/components';
 import cn from 'classnames';
-import styles from './layout.module.scss';
+import s from './layout.module.scss';
 
 const RootLayout: OnlyChildrenFC = ({ children }) => {
   return (
@@ -13,7 +13,11 @@ const RootLayout: OnlyChildrenFC = ({ children }) => {
       </head>
       <body>
         <LiryProvider>
-          <header className={cn(styles.header)}></header>
+          <header className={cn(s.header)}>
+            {Array.from(Array(100).keys()).map((item) => {
+              return <div key={item}>{item}</div>;
+            })}
+          </header>
         </LiryProvider>
       </body>
     </html>

@@ -1,6 +1,14 @@
 @use '@/styles/liry-custom.scss';
 
 .header {
-  background: liry-custom.$liry-dark-color-1;
-  height: 20px;
+  background: liry-custom.$liry-dark-color-3;
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+  & > * {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
