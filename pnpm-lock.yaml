@@ -12,8 +12,8 @@ importers:
         specifier: ^1.4.2
         version: 1.4.2
       '@liry-ccc/common-config':
-        specifier: ^1.0.6
-        version: 1.0.6
+        specifier: ^1.0.11
+        version: 1.0.11
       ahooks:
         specifier: ^3.8.5
         version: 3.8.5(react@18.3.1)
@@ -367,8 +367,8 @@ packages:
   '@keyv/serialize@1.0.3':
     resolution: {integrity: sha512-qnEovoOp5Np2JDGonIDL6Ayihw0RhnRh6vxPuHo4RDn1UOzwEo4AeIfpL6UGIrsceWrCMiVPgwRjbHu4vYFc3g==}
 
-  '@liry-ccc/common-config@1.0.6':
-    resolution: {integrity: sha512-IaXtvepZ6DgAu1KadEpM0owfD+x+TTyYi2D2AjYrHWqmMun5/GHTYYSZFjz2jLnqXqrbKCKLaCET02A+i126Iw==}
+  '@liry-ccc/common-config@1.0.11':
+    resolution: {integrity: sha512-OeJArnJdqGN50NgWqVE9Oc+g0ib9hx1RqXDc53fjvcEJpOA+Wf5u9pWOXHw1+32f6rzoKhwSbAfOjsG1tRMYSw==}
     engines: {node: '>=18.0.0'}
 
   '@mdx-js/loader@3.1.0':
@@ -3162,7 +3162,7 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@liry-ccc/common-config@1.0.6': {}
+  '@liry-ccc/common-config@1.0.11': {}
 
   '@mdx-js/loader@3.1.0(acorn@8.15.0)':
     dependencies:
