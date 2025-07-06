@@ -10,8 +10,8 @@
     "dev": "next dev --port 36545",
     "format": "prettier --write --cache .",
     "lint": "next lint",
-    "start": "next start",
-    "preview": "serve -p 56894 out"
+    "preview": "serve -p 56894 out",
+    "start": "next start"
   },
   "dependencies": {
     "@icon-park/svg": "^1.4.2",
