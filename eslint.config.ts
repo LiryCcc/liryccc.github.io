@@ -1,15 +1,28 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import { defineConfig } from 'eslint/config';
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { globalIgnores } from 'eslint/config'
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import pluginVue from 'eslint-plugin-vue'
+import pluginVitest from '@vitest/eslint-plugin'
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
+// import { configureVueProject } from '@vue/eslint-config-typescript'
+// configureVueProject({ scriptLangs: ['ts', 'tsx'] })
+// More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname
-});
+export default defineConfigWithVueTs(
+  {
+    name: 'app/files-to-lint',
+    files: ['**/*.{ts,mts,tsx,vue}'],
+  },
 
-const eslintConfig = defineConfig(compat.extends('next/core-web-vitals', 'next/typescript'));
+  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
-export default eslintConfig;
+  pluginVue.configs['flat/essential'],
+  vueTsConfigs.recommended,
+  
+  {
+    ...pluginVitest.configs.recommended,
+    files: ['src/**/__tests__/*'],
+  },
+  skipFormatting,
+)

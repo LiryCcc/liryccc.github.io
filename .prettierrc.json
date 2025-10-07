@@ -1,17 +1,6 @@
 {
-  "arrowParens": "always",
-  "bracketSameLine": false,
-  "bracketSpacing": true,
-  "endOfLine": "lf",
-  "htmlWhitespaceSensitivity": "css",
-  "jsxSingleQuote": true,
-  "printWidth": 120,
-  "proseWrap": "preserve",
-  "quoteProps": "as-needed",
-  "semi": true,
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "semi": false,
   "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "none",
-  "useTabs": false,
-  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-packagejson"]
+  "printWidth": 100
 }
