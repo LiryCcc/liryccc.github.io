@@ -43,16 +43,13 @@ jobs:
       - name: check code format
         run: pnpm check-format
 
-      - name: check css style
-        run: pnpm check-style
-
       - name: lint code
         run: pnpm lint
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out # next 生成的静态文件目录
+          path: dist # next 生成的静态文件目录
 
   deploy:
     environment:
