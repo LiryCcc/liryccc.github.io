@@ -16,8 +16,8 @@ const RootLayout: OnlyChildrenFC = () => {
       </head>
       <body>
         <LiryProvider>
-          <header className={cn(s.header)}>
-            <img className={cn(s.logo)} src={logo.src} alt={'logo'} />
+          <header className={cn(s['header'])}>
+            <img className={cn(s['logo'])} src={logo.src} alt={'logo'} />
             {LIRY_SITES.map((site) => {
               return (
                 <Link key={site.key} href={site.url}>

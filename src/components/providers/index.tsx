@@ -1,4 +1,4 @@
-import { OnlyChildrenFC } from '@/typings/components';
+import type { OnlyChildrenFC } from '@/typings/components';
 import { StrictMode } from 'react';
 
 const LiryProvider: OnlyChildrenFC = (props) => {
