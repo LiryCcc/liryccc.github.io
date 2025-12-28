@@ -1,10 +1,10 @@
+import { GameBoard } from '@/components/board';
+import { GameControls } from '@/components/game-controls';
+import { GameStatusDisplay } from '@/components/game-status';
 import { GAME_STATUS } from '@/constants/gomoku';
 import { makeMove, resetGame, undoMove } from '@/store/gomoku-slice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import type { Position } from '@/typings/gomoku';
-import { GameBoard } from './components/board';
-import { GameControls } from './components/game-controls';
-import { GameStatusDisplay } from './components/game-status';
 import styles from './index.module.css';
 
 const Gomoku = () => {

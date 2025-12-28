@@ -1,6 +1,6 @@
+import { Stone } from '@/components/stone';
 import { PLAYER } from '@/constants/gomoku';
 import type { Player } from '@/typings/gomoku';
-import { Stone } from '../stone';
 import styles from './cell.module.css';
 
 type CellProps = {
