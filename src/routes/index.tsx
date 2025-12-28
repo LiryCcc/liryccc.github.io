@@ -1,7 +1,7 @@
+import Layout from '@/pages/layout';
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router';
 
-const Layout = lazy(() => import('@/pages/layout'));
 const Home = lazy(() => import('@/pages/home'));
 const Gomoku = lazy(() => import('@/pages/gomoku'));
 const NotFound = lazy(() => import('@/pages/not-found'));
@@ -18,11 +18,12 @@ export const routes: RouteObject[] = [
       {
         path: 'gomoku',
         Component: Gomoku
+      },
+
+      {
+        path: '*',
+        Component: NotFound
       }
     ]
-  },
-  {
-    path: '*',
-    Component: NotFound
   }
 ];

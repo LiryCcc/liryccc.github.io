@@ -5,7 +5,11 @@ export const en: Translation = {
     welcome: 'Welcome',
     hello: 'Hello',
     loading: 'Loading...',
-    notFound: '404 - Page Not Found'
+    notFound: '404 - Page Not Found',
+    notFoundTitle: 'Page Not Found',
+    notFoundMessage: 'Sorry, the page you are looking for does not exist',
+    notFoundPath: 'Accessed route:',
+    goHome: 'Go to Home'
   },
   layout: {
     title: 'My App',

@@ -1,11 +1,13 @@
 import { LANGUAGES } from '@/constants/language';
 import { useI18n, useTheme } from '@/hooks';
 import { Button, Link, Text } from '@fluentui/react-components';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import styles from './index.module.css';
 
 const Layout = () => {
   const { t, currentLanguage, changeLanguage } = useI18n('layout');
+  const { t: tCommon } = useI18n('common');
   const { theme, toggle, isDark } = useTheme();
 
   const handleLanguageToggle = () => {
@@ -49,7 +51,9 @@ const Layout = () => {
       </header>
       <main className={styles['main']}>
         <div className={styles['content']}>
-          <Outlet />
+          <Suspense fallback={<div>{tCommon('loading')}</div>}>
+            <Outlet />
+          </Suspense>
         </div>
       </main>
     </div>

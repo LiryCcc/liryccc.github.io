@@ -5,7 +5,11 @@ export const translationSchema = z.object({
     welcome: z.string().describe('The welcome message'),
     hello: z.string().describe('The hello message'),
     loading: z.string().describe('The loading message'),
-    notFound: z.string().describe('The 404 page not found message')
+    notFound: z.string().describe('The 404 page not found message'),
+    notFoundTitle: z.string().describe('The 404 page title'),
+    notFoundMessage: z.string().describe('The 404 page message'),
+    notFoundPath: z.string().describe('The text before the path in 404 page'),
+    goHome: z.string().describe('The button text to go to home page')
   }),
   layout: z.object({
     title: z.string().describe('The layout title'),
