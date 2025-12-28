@@ -11,14 +11,14 @@ const LocaleSwitcher = () => {
       <button
         className={`${styles['button']} ${locale === 'zh' ? styles['active'] : ''}`}
         onClick={() => setLocale('zh')}
-        aria-label="切换到中文"
+        aria-label='切换到中文'
       >
         中文
       </button>
       <button
         className={`${styles['button']} ${locale === 'en' ? styles['active'] : ''}`}
         onClick={() => setLocale('en')}
-        aria-label="Switch to English"
+        aria-label='Switch to English'
       >
         English
       </button>
@@ -27,4 +27,3 @@ const LocaleSwitcher = () => {
 };
 
 export default LocaleSwitcher;
-

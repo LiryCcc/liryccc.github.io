@@ -12,4 +12,3 @@ export const zh = {
     reset: '重新开始'
   }
 };
-
