@@ -1,0 +1,399 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: background 0.3s ease;
+}
+
+.container[data-theme='dark'] {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.header {
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.container[data-theme='dark'] .header {
+  background: rgb(26 26 46 / 95%);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 30%);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.title {
+  margin: 0;
+  white-space: nowrap;
+  color: #333;
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container[data-theme='dark'] .title {
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-link {
+  transition:
+    color 0.2s,
+    background 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background: rgb(102 126 234 / 10%);
+}
+
+.container[data-theme='dark'] .nav-link:hover {
+  background: rgb(139 111 168 / 20%);
+}
+
+.language-toggle {
+  min-width: auto;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.theme-toggle {
+  min-width: auto;
+  padding: 0.5rem;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.content {
+  max-width: 1400px;
+  width: 100%;
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+  padding: 2rem;
+  min-height: 400px;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.container[data-theme='dark'] .content {
+  background: rgb(26 26 46 / 95%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 50%);
+}
+
+.footer {
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgb(0 0 0 / 10%);
+  margin-top: auto;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.container[data-theme='dark'] .footer {
+  background: rgb(26 26 46 / 95%);
+  border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.container[data-theme='dark'] .footer-text {
+  color: #ccc;
+}
+
+/* PC 宽屏 (1920px+) */
+@media (width >= 1920px) {
+  .header-content {
+    padding: 1rem 3rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .content {
+    padding: 3rem;
+  }
+
+  .nav-link {
+    font-size: 1.125rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* PC 竖屏 / 平板横屏 (1024px - 1919px) */
+@media (width >= 1024px) and (width <= 1919px) {
+  .header-content {
+    padding: 0.875rem 2rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .content {
+    padding: 2.5rem;
+  }
+}
+
+/* iPad (768px - 1023px) */
+@media (width >= 768px) and (width <= 1023px) {
+  .header-content {
+    padding: 0.75rem 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .nav {
+    gap: 0.5rem;
+  }
+
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .main {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* 手机横屏 / 小平板 (600px - 767px) */
+@media (width >= 600px) and (width <= 767px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+  }
+
+  .container[data-theme='dark'] .header {
+    box-shadow: 0 4px 20px rgb(0 0 0 / 50%);
+  }
+
+  .header-content {
+    padding: 0.625rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .nav {
+    gap: 0.375rem;
+  }
+
+  .nav-link {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .theme-toggle {
+    padding: 0.375rem;
+  }
+
+  .content {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+
+  .main {
+    padding: 1rem 0.75rem;
+    padding-top: 4rem;
+  }
+
+  .footer-content {
+    padding: 1rem;
+  }
+}
+
+/* 手机竖屏 (320px - 599px) */
+@media (width <= 599px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+  }
+
+  .container[data-theme='dark'] .header {
+    box-shadow: 0 4px 20px rgb(0 0 0 / 50%);
+  }
+
+  .header-content {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 0.875rem;
+    max-width: 40%;
+  }
+
+  .nav {
+    gap: 0.25rem;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .nav-link {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .theme-toggle {
+    padding: 0.375rem;
+    min-width: 2rem;
+  }
+
+  .content {
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+    min-height: 300px;
+  }
+
+  .main {
+    padding: 1rem 0.5rem;
+    padding-top: 3.5rem;
+  }
+
+  .footer-content {
+    padding: 1rem 0.75rem;
+  }
+
+  .footer-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* iPhone 特殊适配 (375px - 414px) */
+@media (width >= 375px) and (width <= 414px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+  }
+
+  .container[data-theme='dark'] .header {
+    box-shadow: 0 4px 20px rgb(0 0 0 / 50%);
+  }
+
+  .header-content {
+    padding: 0.5rem 0.875rem;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 0.9375rem;
+    max-width: 45%;
+  }
+
+  .nav {
+    gap: 0.375rem;
+  }
+
+  .main {
+    padding-top: 3.75rem;
+  }
+
+  .content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* 小屏手机 (320px - 374px) */
+@media (width <= 374px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+  }
+
+  .container[data-theme='dark'] .header {
+    box-shadow: 0 4px 20px rgb(0 0 0 / 50%);
+  }
+
+  .header-content {
+    padding: 0.5rem 0.625rem;
+    gap: 0.375rem;
+  }
+
+  .title {
+    font-size: 0.8125rem;
+    max-width: 35%;
+  }
+
+  .nav {
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.3125rem 0.4375rem;
+    font-size: 0.75rem;
+  }
+
+  .theme-toggle {
+    padding: 0.3125rem;
+    min-width: 1.75rem;
+  }
+
+  .main {
+    padding-top: 3.25rem;
+  }
+
+  .content {
+    padding: 1rem 0.75rem;
+  }
+}

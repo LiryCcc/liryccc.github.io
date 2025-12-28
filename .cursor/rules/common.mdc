@@ -1,0 +1,136 @@
+# 项目编码规范和最佳实践
+
+## 技术栈
+- React 19 + TypeScript
+- Redux Toolkit (状态管理)
+- i18next (国际化)
+- Vite (构建工具)
+- Zod (类型验证和 Schema 定义)
+- ESLint + Prettier + Stylelint (代码规范)
+
+## 代码风格
+
+### 工具函数
+- 工具函数放在`src/utils/`目录
+- 常量定义放在`src/constants/`目录，代码中尽量不要用到魔法数字及字符串，可以通过常量定义导出类型
+
+### TypeScript
+- 使用严格的 TypeScript 配置（strict mode）
+- 优先使用 `type` 而非 `interface`（除非需要扩展）
+- 使用类型推断，避免不必要的类型注解
+- 导出的类型使用 `export type`
+- 使用路径别名 `@/` 指向 `src/` 目录
+
+### React
+- 使用函数组件和 Hooks
+- 组件文件使用 PascalCase 命名
+- 使用 `OnlyChildrenFC` 类型定义只接受 children 的组件
+- 优先使用命名导出
+- 使用 React Compiler（已配置在 ESLint 中）
+
+# 路由采用 react-router 实现
+- 应注意从`react-router`导出而不是`react-router-dom`
+- 注意使用react-router的v7版本
+- 路由配置放在`src/routes/index.ts`中
+- 路由表使用lazy实现懒加载
+- 页面文件按照 `src/pages/` 目录结构组织
+- 每个页面是一个文件夹，文件夹名称为页面名称，文件夹内包含 `index.tsx` `index.module.css` 文件，可以有其他文件放置需要用到的组件等
+
+### Redux
+- 使用 Redux Toolkit 的 `createSlice` 创建 reducers
+- 使用类型化的 hooks: `useAppDispatch` 和 `useAppSelector`（从 `@/store/hooks` 导入）
+- Store 结构按功能模块组织
+
+### 文件组织
+- 组件放在 `src/components/` 目录，每个组件是一个文件夹，文件夹内包含 `index.tsx` `index.module.css` 文件，可以有其他文件放置需要用到的组件等
+- Store 相关文件放在 `src/store/` 目录
+- 类型定义放在 `src/typings/` 目录
+- 页面放在 `src/pages/` 目录
+- 翻译文件放在 `src/translations/` 目录
+
+### 代码格式
+- 使用 2 个空格缩进
+- 使用单引号（single quotes）
+- 行尾使用 LF
+- 行宽限制 120 字符
+- 不使用尾随逗号（trailingComma: "none"）
+- JSX 使用单引号
+- 使用 Prettier 自动格式化（包含 organize-imports 插件）
+
+### 样式编写
+- 样式采用 css module 方式编写
+- 项目共用样式文件放在 `src/styles/` 目录
+- 其他样式，如页面和组件的，放在同级index.tsx的index.module.css文件中
+- 样式文件使用 `index.module.css` 文件名
+- 样式文件使用 `kebab-case` 命名规范
+
+### 国际化
+- 翻译 key 使用嵌套对象结构（如 `common.welcome`）
+- 使用 Zod schema 定义翻译类型（在 `translations/schema.ts`）
+- 翻译文件使用 `en.ts` 和 `zh.ts`
+- 翻译的一级key是区分领域的，如 `common`表示通用翻译 等
+- 具体的文本放在二级key下面，比如 `common.welcome` 表示欢迎文本，`common.hello` 表示你好文本
+
+## 最佳实践
+- 样式采用 css module 方式编写
+- 多使用react18 19的新特性
+- 组件库使用@fluentui/react-components
+- 自定义hook放在`src/hooks/`目录
+- 多使用ahooks中的hook
+
+### 组件开发
+- 组件应该是纯函数，避免副作用
+- 使用 React Hooks 管理组件状态
+- Props 使用类型定义，优先使用 `type` 而不是 `interface`
+- 组件应该小而专注，单一职责
+
+### 状态管理
+- 全局状态使用 Redux Toolkit
+- 局部状态使用 React 的 `useState`
+- 异步操作使用 Redux Toolkit 的 `createAsyncThunk`
+- 避免在 Redux 中存储非序列化的数据（如函数、类实例等）
+
+### 错误处理
+- 使用 TypeScript 的严格类型检查捕获错误
+- 使用 Zod 进行运行时数据验证
+- 错误边界处理使用 React Error Boundary
+
+### 性能优化
+- 使用 React.memo 优化不必要的重渲染
+- 使用 useMemo 和 useCallback 优化计算和函数引用
+- 代码分割使用 React.lazy 和 Suspense
+
+### 代码质量
+- 所有代码必须通过 ESLint 检查
+- 提交前运行 `pnpm lint` 确保代码质量
+- 使用 Prettier 统一代码格式
+- 使用 cspell 检查拼写错误
+
+## 导入顺序
+1. React 相关导入
+2. 第三方库导入
+3. 项目内部导入（使用路径别名 `@/`）
+4. 类型导入（使用 `import type`）
+
+## 命名规范
+- 组件：PascalCase（如 `UserProfile.tsx`）
+- 文件：camelCase（如 `appSlice.ts`）
+- 变量/函数：camelCase（如 `getUserData`）
+- 常量：UPPER_SNAKE_CASE（如 `API_BASE_URL`）
+- 类型/接口：PascalCase（如 `UserData`）
+
+## Git 提交
+- 使用 Conventional Commits 规范
+- 提交前必须通过所有 lint 检查
+- 提交信息使用 commitlint 验证
+
+## 注意事项
+- 不要使用 `any` 类型，使用 `unknown` 或具体类型
+- 避免使用 `@ts-ignore` 或 `@ts-expect-error`，优先修复类型问题
+- 所有导出的函数和组件都应该有清晰的类型定义
+- 保持代码简洁，避免过度抽象
+- 注释应该解释"为什么"而不是"做什么"
+- 文件及文件夹命名遵循 `kebab-case` 命名规范
+- css类名使用 `kebab-case` 命名规范
+- 日期相关处理使用dayjs，避免使用Date
+

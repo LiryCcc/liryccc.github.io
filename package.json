@@ -1,0 +1,63 @@
+{
+  "name": "g",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "dev": "vite",
+    "format": "prettier . --write --cache",
+    "lint": "pnpm lint:code && pnpm lint:format && pnpm lint:spell && pnpm lint:style",
+    "lint:code": "eslint . --cache",
+    "lint:format": "prettier . --check --cache",
+    "lint:spell": "cspell .",
+    "lint:style": "stylelint '**/*.css'",
+    "prepare": "simple-git-hooks",
+    "preview": "vite preview"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint",
+    "commit-msg": "pnpm commitlint --edit"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "^9.72.9",
+    "@reduxjs/toolkit": "^2.11.2",
+    "ahooks": "^3.9.6",
+    "dayjs": "^1.11.19",
+    "i18next": "^25.7.3",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "normalize.css": "^8.0.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-i18next": "^16.5.0",
+    "react-redux": "^9.2.0",
+    "react-router": "^7.11.0",
+    "redux": "^5.0.1",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^24.10.4",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "cspell": "^9.4.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react-compiler": "19.1.0-rc.2",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "globals": "^16.5.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.7.4",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-packagejson": "^2.5.20",
+    "simple-git-hooks": "^2.13.1",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.50.1",
+    "vite": "^7.3.0"
+  }
+}
