@@ -13,7 +13,8 @@ export default defineConfig({
     }
   },
   server: {
-    port: 23825
+    port: 23825,
+    host: '0.0.0.0'
   },
   test: {
     environment: 'jsdom',
