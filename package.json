@@ -13,7 +13,7 @@
     "lint:format": "prettier . --check --cache",
     "lint:spell": "cspell .",
     "lint:style": "stylelint '**/*.css'",
-    "lint:type": "tsc",
+    "lint:type": "tsc -b",
     "prepare": "simple-git-hooks",
     "preview": "vite preview",
     "test:coverage": "vitest run --coverage",
