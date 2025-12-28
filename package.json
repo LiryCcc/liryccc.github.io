@@ -7,7 +7,7 @@
     "build": "tsc -b && vite build",
     "dev": "vite",
     "format": "prettier . --write --cache",
-    "lint": "pnpm lint:code && pnpm lint:format && pnpm lint:spell && pnpm lint:style",
+    "lint": "pnpm lint:code && pnpm lint:format && pnpm lint:spell && pnpm lint:style && pnpm lint:type",
     "lint:code": "eslint . --cache",
     "lint:format": "prettier . --check --cache",
     "lint:spell": "cspell .",

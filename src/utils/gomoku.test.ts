@@ -18,7 +18,7 @@ describe('gomoku utils', () => {
       const board = createEmptyBoard();
       expect(board).toHaveLength(BOARD_SIZE);
       expect(board[0]).toHaveLength(BOARD_SIZE);
-      expect(board[0][0]).toBe(PLAYER.NONE);
+      expect(board[0]![0]).toBe(PLAYER.NONE);
     });
   });
 
@@ -45,7 +45,7 @@ describe('gomoku utils', () => {
 
     it('should return false for occupied cells', () => {
       const board = createEmptyBoard();
-      board[0][0] = PLAYER.BLACK;
+      board[0]![0] = PLAYER.BLACK;
       expect(isEmptyCell(board, 0, 0)).toBe(false);
     });
 
@@ -59,15 +59,15 @@ describe('gomoku utils', () => {
     it('should place a stone on empty cell', () => {
       const board = createEmptyBoard();
       const newBoard = makeMove(board, 0, 0, PLAYER.BLACK);
-      expect(newBoard[0][0]).toBe(PLAYER.BLACK);
-      expect(board[0][0]).toBe(PLAYER.NONE); // original board unchanged
+      expect(newBoard[0]![0]).toBe(PLAYER.BLACK);
+      expect(board[0]![0]).toBe(PLAYER.NONE); // original board unchanged
     });
 
     it('should not place a stone on occupied cell', () => {
       const board = createEmptyBoard();
-      board[0][0] = PLAYER.BLACK;
+      board[0]![0] = PLAYER.BLACK;
       const newBoard = makeMove(board, 0, 0, PLAYER.WHITE);
-      expect(newBoard[0][0]).toBe(PLAYER.BLACK);
+      expect(newBoard[0]![0]).toBe(PLAYER.BLACK);
     });
   });
 
@@ -75,7 +75,7 @@ describe('gomoku utils', () => {
     it('should detect horizontal win', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 5; i++) {
-        board[0][i] = PLAYER.BLACK;
+        board[0]![i] = PLAYER.BLACK;
       }
       expect(checkWin(board, 0, 2, PLAYER.BLACK)).toBe(true);
     });
@@ -83,7 +83,7 @@ describe('gomoku utils', () => {
     it('should detect vertical win', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 5; i++) {
-        board[i][0] = PLAYER.BLACK;
+        board[i]![0] = PLAYER.BLACK;
       }
       expect(checkWin(board, 2, 0, PLAYER.BLACK)).toBe(true);
     });
@@ -91,7 +91,7 @@ describe('gomoku utils', () => {
     it('should detect diagonal win (main)', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 5; i++) {
-        board[i][i] = PLAYER.BLACK;
+        board[i]![i] = PLAYER.BLACK;
       }
       expect(checkWin(board, 2, 2, PLAYER.BLACK)).toBe(true);
     });
@@ -99,7 +99,7 @@ describe('gomoku utils', () => {
     it('should detect diagonal win (anti)', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 5; i++) {
-        board[i][4 - i] = PLAYER.BLACK;
+        board[i]![4 - i] = PLAYER.BLACK;
       }
       expect(checkWin(board, 2, 2, PLAYER.BLACK)).toBe(true);
     });
@@ -107,7 +107,7 @@ describe('gomoku utils', () => {
     it('should not detect win for less than 5 in a row', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 4; i++) {
-        board[0][i] = PLAYER.BLACK;
+        board[0]![i] = PLAYER.BLACK;
       }
       expect(checkWin(board, 0, 1, PLAYER.BLACK)).toBe(false);
     });
@@ -115,7 +115,7 @@ describe('gomoku utils', () => {
     it('should not detect win for different player', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 5; i++) {
-        board[0][i] = PLAYER.BLACK;
+        board[0]![i] = PLAYER.BLACK;
       }
       expect(checkWin(board, 0, 2, PLAYER.WHITE)).toBe(false);
     });
@@ -126,7 +126,7 @@ describe('gomoku utils', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < BOARD_SIZE; i++) {
         for (let j = 0; j < BOARD_SIZE; j++) {
-          board[i][j] = (i + j) % 2 === 0 ? PLAYER.BLACK : PLAYER.WHITE;
+          board[i]![j] = (i + j) % 2 === 0 ? PLAYER.BLACK : PLAYER.WHITE;
         }
       }
       expect(checkDraw(board)).toBe(true);
@@ -162,7 +162,7 @@ describe('gomoku utils', () => {
   describe('getGameStatus', () => {
     it('should return playing status when no win', () => {
       const board = createEmptyBoard();
-      board[0][0] = PLAYER.BLACK;
+      board[0]![0] = PLAYER.BLACK;
       const result = getGameStatus(board, { row: 0, col: 0 }, PLAYER.BLACK);
       expect(result.status).toBe(GAME_STATUS.PLAYING);
       expect(result.winner).toBe(PLAYER.NONE);
@@ -171,7 +171,7 @@ describe('gomoku utils', () => {
     it('should return black win when black wins', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 5; i++) {
-        board[0][i] = PLAYER.BLACK;
+        board[0]![i] = PLAYER.BLACK;
       }
       const result = getGameStatus(board, { row: 0, col: 2 }, PLAYER.BLACK);
       expect(result.status).toBe(GAME_STATUS.BLACK_WIN);
@@ -181,7 +181,7 @@ describe('gomoku utils', () => {
     it('should return white win when white wins', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < 5; i++) {
-        board[0][i] = PLAYER.WHITE;
+        board[0]![i] = PLAYER.WHITE;
       }
       const result = getGameStatus(board, { row: 0, col: 2 }, PLAYER.WHITE);
       expect(result.status).toBe(GAME_STATUS.WHITE_WIN);
@@ -192,7 +192,7 @@ describe('gomoku utils', () => {
       const board = createEmptyBoard();
       for (let i = 0; i < BOARD_SIZE; i++) {
         for (let j = 0; j < BOARD_SIZE; j++) {
-          board[i][j] = (i + j) % 2 === 0 ? PLAYER.BLACK : PLAYER.WHITE;
+          board[i]![j] = (i + j) % 2 === 0 ? PLAYER.BLACK : PLAYER.WHITE;
         }
       }
       const result = getGameStatus(board, { row: 0, col: 0 }, PLAYER.BLACK);
