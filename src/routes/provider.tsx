@@ -18,6 +18,7 @@ const LiryRouter: FC = () => {
     return createHashRouter(routes);
   }, [support]);
 
+  console.log(`support: ${support}`);
   if (isPending) {
     return <div>{t('loading')}</div>;
   }
