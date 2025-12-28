@@ -1,3 +1,4 @@
+import Gomoku from '@/components/gomoku';
 import { createMeta } from '@/utils/metadata';
 
 const metadata = createMeta({
@@ -6,7 +7,7 @@ const metadata = createMeta({
 });
 
 const Home = () => {
-  return <></>;
+  return <Gomoku />;
 };
 
 export default Home;
