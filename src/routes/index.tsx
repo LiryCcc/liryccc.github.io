@@ -3,6 +3,7 @@ import type { RouteObject } from 'react-router';
 
 const Layout = lazy(() => import('@/pages/layout'));
 const Home = lazy(() => import('@/pages/home'));
+const Gomoku = lazy(() => import('@/pages/gomoku'));
 const NotFound = lazy(() => import('@/pages/not-found'));
 
 export const routes: RouteObject[] = [
@@ -13,6 +14,10 @@ export const routes: RouteObject[] = [
       {
         index: true,
         Component: Home
+      },
+      {
+        path: 'gomoku',
+        Component: Gomoku
       }
     ]
   },
