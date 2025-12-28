@@ -37,11 +37,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build with Rspress
-        run: pnpm build
-
       - name: lint code
         run: pnpm lint
+
+      - name: Build with Rspress
+        run: pnpm build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
