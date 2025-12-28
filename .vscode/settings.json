@@ -1,7 +1,0 @@
-{
-  "files.associations": {
-    "@.css": "css",
-    "*.scss": "scss"
-  },
-  "launch": {}
-}
