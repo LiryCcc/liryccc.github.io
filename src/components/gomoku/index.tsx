@@ -121,18 +121,18 @@ const Gomoku = () => {
         <div className={styles['status']}>
           {winner ? (
             <div className={styles['winner']}>
-              <span className={styles['winnerText']}>🎉 {getPlayerName(winner)} 获胜！</span>
+              <span className={styles['winner-text']}>🎉 {getPlayerName(winner)} 获胜！</span>
             </div>
           ) : (
-            <div className={styles['currentPlayer']}>
+            <div className={styles['current-player']}>
               <span>当前玩家：</span>
-              <span className={currentPlayer === 'black' ? styles['blackPlayer'] : styles['whitePlayer']}>
+              <span className={currentPlayer === 'black' ? styles['black-player'] : styles['white-player']}>
                 {getPlayerName(currentPlayer)}
               </span>
             </div>
           )}
         </div>
-        <button className={styles['resetButton']} onClick={handleReset}>
+        <button className={styles['reset-button']} onClick={handleReset}>
           重新开始
         </button>
       </div>
@@ -148,7 +148,7 @@ const Gomoku = () => {
               >
                 {cell && (
                   <div
-                    className={`${styles['stone']} ${cell === 'black' ? styles['blackStone'] : styles['whiteStone']}`}
+                    className={`${styles['stone']} ${cell === 'black' ? styles['black-stone'] : styles['white-stone']}`}
                   />
                 )}
               </div>
