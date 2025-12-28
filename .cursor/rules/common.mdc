@@ -149,4 +149,6 @@
 - 文件及文件夹命名遵循 `kebab-case` 命名规范
 - css类名使用 `kebab-case` 命名规范
 - 日期相关处理使用dayjs，避免使用Date
+- 样式文件中不得直接使用`webkit`、`moz`等前缀
+- 需要保证移动端（ipad、android、iphone）和pc端（宽屏、竖屏）都得到适配
 

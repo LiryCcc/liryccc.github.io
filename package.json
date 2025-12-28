@@ -9,6 +9,7 @@
     "format": "prettier . --write --cache",
     "lint": "pnpm lint:code && pnpm lint:format && pnpm lint:spell && pnpm lint:style && pnpm lint:type",
     "lint:code": "eslint . --cache",
+    "lint:fix": "pnpm format && pnpm lint:style --fix && pnpm lint:code --fix",
     "lint:format": "prettier . --check --cache",
     "lint:spell": "cspell .",
     "lint:style": "stylelint '**/*.css'",
