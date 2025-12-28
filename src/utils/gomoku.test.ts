@@ -190,12 +190,22 @@ describe('gomoku utils', () => {
 
     it('should return draw when board is full', () => {
       const board = createEmptyBoard();
+      // Fill board with a pattern that ensures no 5 in a row
+      // Use a pattern that switches every 4 positions to ensure max 4 consecutive same colors
       for (let i = 0; i < BOARD_SIZE; i++) {
         for (let j = 0; j < BOARD_SIZE; j++) {
-          board[i]![j] = (i + j) % 2 === 0 ? PLAYER.BLACK : PLAYER.WHITE;
+          // Pattern: every 4 positions switch color, and also alternate by row
+          // This breaks up any potential 5-in-a-row patterns
+          const blockCol = Math.floor(j / 4);
+          const rowOffset = i % 2;
+          // Alternate: even blocks in even rows = BLACK, odd blocks in even rows = WHITE
+          // This creates a pattern that prevents 5 consecutive in any direction
+          board[i]![j] = blockCol % 2 === rowOffset ? PLAYER.BLACK : PLAYER.WHITE;
         }
       }
-      const result = getGameStatus(board, { row: 0, col: 0 }, PLAYER.BLACK);
+      // Use a position that's safe (not on a potential winning line)
+      // With our pattern, position (7, 7) should be safe
+      const result = getGameStatus(board, { row: 7, col: 7 }, PLAYER.BLACK);
       expect(result.status).toBe(GAME_STATUS.DRAW);
       expect(result.winner).toBe(PLAYER.NONE);
     });

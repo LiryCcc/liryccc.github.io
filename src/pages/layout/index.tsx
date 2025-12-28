@@ -23,12 +23,16 @@ const Layout = () => {
             {t('title')}
           </Text>
           <nav className={styles['nav']}>
-            <Link href='/' appearance='subtle' className={styles['nav-link']}>
-              {t('home')}
-            </Link>
-            <Link href='/about' appearance='subtle' className={styles['nav-link']}>
-              {t('about')}
-            </Link>
+            <Button appearance='subtle'>
+              <Link href='/' appearance='subtle' className={styles['nav-link']}>
+                {t('home')}
+              </Link>
+            </Button>
+            <Button appearance='subtle'>
+              <Link href='/about' appearance='subtle' className={styles['nav-link']}>
+                {t('about')}
+              </Link>
+            </Button>
             <Button
               appearance='subtle'
               onClick={handleLanguageToggle}

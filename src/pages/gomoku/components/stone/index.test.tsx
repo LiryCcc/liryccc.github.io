@@ -30,14 +30,16 @@ describe('Stone', () => {
     render(<Stone player={PLAYER.BLACK} />);
     const stone = screen.getByLabelText('Black stone');
     expect(stone).toBeTruthy();
-    expect(stone).toHaveClass('stone-black');
+    // Check that className contains the expected class (CSS modules hash the class names)
+    expect(stone.className).toContain('stone-black');
   });
 
   it('should render white stone', () => {
     render(<Stone player={PLAYER.WHITE} />);
     const stone = screen.getByLabelText('White stone');
     expect(stone).toBeTruthy();
-    expect(stone).toHaveClass('stone-white');
+    // Check that className contains the expected class (CSS modules hash the class names)
+    expect(stone.className).toContain('stone-white');
   });
 
   it('should not render button for occupied cells', () => {
