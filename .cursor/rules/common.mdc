@@ -7,8 +7,15 @@
 - Vite (构建工具)
 - Zod (类型验证和 Schema 定义)
 - ESLint + Prettier + Stylelint (代码规范)
+- fluentui/react-components作为组件库
+- css module 作为样式按感
+- vitest作为单元测试工具
 
 ## 代码风格
+
+### 单元测试
+- 单元测试文件与源代码文件目录同级，使用`*.test.ts`的命名方式
+- 自定义hook及工具函数尽可能多编写单元测试
 
 ### 工具函数
 - 工具函数放在`src/utils/`目录
