@@ -1,6 +1,6 @@
-import { PLAYER } from '@/constants/gomoku';
+import { BOARD_SIZE } from '@/constants/gomoku';
 import type { Board, Position } from '@/typings/gomoku';
-import { Stone } from '../stone';
+import { Cell } from './cell';
 import styles from './index.module.css';
 
 type BoardProps = {
@@ -11,7 +11,7 @@ type BoardProps = {
 
 export const GameBoard = ({ board, onCellClick, disabled = false }: BoardProps) => {
   const handleCellClick = (row: number, col: number) => {
-    if (!disabled && board[row][col] === PLAYER.NONE) {
+    if (!disabled && board[row][col] === 0) {
       onCellClick({ row, col });
     }
   };
@@ -21,13 +21,18 @@ export const GameBoard = ({ board, onCellClick, disabled = false }: BoardProps) 
       {board.map((row, rowIndex) => (
         <div key={rowIndex} className={styles['board-row']}>
           {row.map((cell, colIndex) => (
-            <div key={colIndex} className={styles['board-cell']}>
-              <Stone
-                player={cell}
-                onClick={() => handleCellClick(rowIndex, colIndex)}
-                disabled={disabled || cell !== PLAYER.NONE}
-              />
-            </div>
+            <Cell
+              key={colIndex}
+              row={rowIndex}
+              col={colIndex}
+              player={cell}
+              onClick={() => handleCellClick(rowIndex, colIndex)}
+              disabled={disabled}
+              isFirstRow={rowIndex === 0}
+              isLastRow={rowIndex === BOARD_SIZE - 1}
+              isFirstCol={colIndex === 0}
+              isLastCol={colIndex === BOARD_SIZE - 1}
+            />
           ))}
         </div>
       ))}

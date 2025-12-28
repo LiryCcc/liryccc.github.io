@@ -4,6 +4,9 @@
   align-items: center;
   min-height: 100%;
   padding: 24px;
+
+  /* 移动端减少padding */
+  padding: clamp(12px, 4vw, 24px);
 }
 
 .container {

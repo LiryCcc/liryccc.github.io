@@ -79,6 +79,9 @@
 - 其他样式，如页面和组件的，放在同级index.tsx的index.module.css文件中
 - 样式文件使用 `index.module.css` 文件名
 - 样式文件使用 `kebab-case` 命名规范
+- 样式不应添加`webkit` `moz`等特定前缀
+- 应最大限度使用rem，尽可能避免px的使用，同时保证移动端和pc端都得到适配，在移动端中主体部分横向不应支持滚动
+- 移动端中横向宽度固定为414rem
 
 ### 国际化
 - 翻译 key 使用嵌套对象结构（如 `common.welcome`）

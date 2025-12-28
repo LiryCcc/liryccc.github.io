@@ -1,0 +1,86 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+
+  /* 确保单元格是正方形 */
+  aspect-ratio: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* 在每个cell的中心绘制横线（通过中心的水平线）
+   横线从cell的左边界延伸到右边界，形成连续的网格
+*/
+.cell::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: #8b7355;
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+/* 在每个cell的中心绘制竖线（通过中心的垂直线）
+   竖线从cell的上边界延伸到下边界，形成连续的网格
+*/
+.cell::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #8b7355;
+  z-index: 0;
+  transform: translateX(-50%);
+}
+
+/* 边界cell：第一列，竖线只延伸到右边界（不延伸到左边） */
+.cell-first-col::after {
+  left: 50%;
+  right: 0;
+  width: auto;
+  transform: none;
+}
+
+/* 边界cell：最后一列，竖线只延伸到左边界（不延伸到右边） */
+.cell-last-col::after {
+  left: 0;
+  right: 50%;
+  width: auto;
+  transform: none;
+}
+
+/* 边界cell：第一行，横线只延伸到下边界（不延伸到上边） */
+.cell-first-row::before {
+  top: 50%;
+  bottom: 0;
+  height: auto;
+  transform: none;
+}
+
+/* 边界cell：最后一行，横线只延伸到上边界（不延伸到下边） */
+.cell-last-row::before {
+  top: 0;
+  bottom: 50%;
+  height: auto;
+  transform: none;
+}
+
+.cell > * {
+  position: relative;
+  z-index: 1;
+
+  /* 棋子大小根据棋盘大小自适应 */
+  width: min(calc((100% - 24px) / 15 * 0.7), 28px);
+  height: min(calc((100% - 24px) / 15 * 0.7), 28px);
+  min-width: 16px;
+  min-height: 16px;
+}
