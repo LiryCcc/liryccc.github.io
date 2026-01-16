@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",
-    "dev": "vite",
+    "dev": "vite dev",
     "format": "prettier . --write --cache",
     "lint": "pnpm lint:code && pnpm lint:format && pnpm lint:spell && pnpm lint:style && pnpm lint:type",
     "lint:code": "eslint . --cache",

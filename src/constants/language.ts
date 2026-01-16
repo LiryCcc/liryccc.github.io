@@ -1,7 +1,10 @@
+import type { Key } from 'react';
+
 export const LANGUAGES = {
   ZH: 'zh',
   EN: 'en'
 } as const;
+export type A = Key;
 
 export type Language = (typeof LANGUAGES)[keyof typeof LANGUAGES];
 
