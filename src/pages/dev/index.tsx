@@ -15,7 +15,10 @@ const Dev = () => {
         <Stone player={GOMOKU_POINT_STATUS.WHITE} />
       </div>
       <div>
-        <GomokuPoint minIndex={0} maxIndex={0} x={0} y={0} status={'NONE'}></GomokuPoint>
+        <GomokuPoint minIndex={0} maxIndex={1} x={0} y={0} status={'NONE'}></GomokuPoint>
+        <GomokuPoint minIndex={0} maxIndex={1} x={0} y={1} status={'NONE'}></GomokuPoint>
+        <GomokuPoint minIndex={0} maxIndex={1} x={1} y={0} status={'NONE'}></GomokuPoint>
+        <GomokuPoint minIndex={0} maxIndex={1} x={1} y={1} status={'NONE'}></GomokuPoint>
       </div>
     </div>
   );

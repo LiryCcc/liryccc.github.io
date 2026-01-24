@@ -1,4 +1,61 @@
 .container {
-  width: 4rem;
-  height: 4rem;
+  width: var(--gomoku-point-size);
+  height: var(--gomoku-point-size);
+  background-color: var(--gomoku-point-background-color);
+  position: relative;
+}
+
+.line {
+  background-color: var(--gomoku-line-color);
+  position: absolute;
+}
+
+.vertical-line {
+  width: var(--gomoku-line-size);
+  height: calc(var(--gomoku-point-size) / 2);
+}
+
+.horizontal-line {
+  width: calc(var(--gomoku-point-size) / 2);
+  height: var(--gomoku-line-size);
+}
+
+.left-line {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-self: flex-end;
+}
+
+.right-line {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.top-line {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+}
+
+.bottom-line {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center top;
+}
+
+.square {
+  width: var(--gomoku-line-size);
+  height: var(--gomoku-line-size);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.none {
+  display: none;
 }

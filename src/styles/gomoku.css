@@ -1,0 +1,9 @@
+/**
+ * 五子棋相关主题变量
+ */
+:root {
+  --gomoku-line-color: #33281e;
+  --gomoku-point-background-color: #a67c52;
+  --gomoku-point-size: 4rem;
+  --gomoku-line-size: 3px;
+}

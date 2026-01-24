@@ -18,7 +18,7 @@ export default defineConfig([
       reactCompiler.configs.recommended
     ],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2025,
       globals: globals.browser
     }
   }
