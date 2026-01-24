@@ -1,6 +1,4 @@
 import GomokuPoint from '@/components/gomoku-point';
-import { Stone } from '@/components/stone';
-import { GOMOKU_POINT_STATUS } from '@/constants/gomoku';
 import { Button } from '@fluentui/react-components';
 
 const Dev = () => {
@@ -10,10 +8,7 @@ const Dev = () => {
         <Button>{123}</Button>
         <Button>{456}</Button>
       </div>
-      <div>
-        <Stone player={GOMOKU_POINT_STATUS.BLACK} />
-        <Stone player={GOMOKU_POINT_STATUS.WHITE} />
-      </div>
+
       <div>
         <GomokuPoint minIndex={0} maxIndex={1} x={0} y={0} status={'NONE'}></GomokuPoint>
         <GomokuPoint minIndex={0} maxIndex={1} x={0} y={1} status={'NONE'}></GomokuPoint>

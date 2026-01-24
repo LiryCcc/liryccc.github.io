@@ -5,10 +5,3 @@ export const GOMOKU_POINT_STATUS = {
   BLACK: 'BLACK',
   WHITE: 'WHITE'
 } as const;
-
-export const GAME_STATUS = {
-  PLAYING: 'playing',
-  BLACK_WIN: 'black_win',
-  WHITE_WIN: 'white_win',
-  DRAW: 'draw'
-} as const;
