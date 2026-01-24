@@ -5,6 +5,7 @@ import { createBrowserRouter } from 'react-router';
 const Home = lazy(() => import('@/pages/home'));
 const Gomoku = lazy(() => import('@/pages/gomoku'));
 const NotFound = lazy(() => import('@/pages/not-found'));
+const Dev = lazy(() => import('@/pages/dev'));
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,10 @@ export const router = createBrowserRouter([
         path: 'gomoku',
         Component: Gomoku
       },
-
+      {
+        path: 'dev',
+        Component: import.meta.env.DEV ? Dev : NotFound
+      },
       {
         path: '*',
         Component: NotFound
