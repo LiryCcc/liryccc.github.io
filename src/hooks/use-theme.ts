@@ -1,13 +1,12 @@
 import type { Theme } from '@/constants/theme';
 import { THEMES } from '@/constants/theme';
-import type { RootState } from '@/store';
 import { setFollowSystem, setTheme, toggleTheme } from '@/store/app-slice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 
 export const useTheme = () => {
-  const dispatch = useDispatch();
-  const theme = useSelector((state: RootState) => state.app.theme);
-  const followSystem = useSelector((state: RootState) => state.app.followSystem);
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.app.theme);
+  const followSystem = useAppSelector((state) => state.app.followSystem);
 
   const changeTheme = (newTheme: Theme) => {
     dispatch(setTheme(newTheme));

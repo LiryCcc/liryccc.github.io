@@ -9,7 +9,11 @@ export const translationSchema = z.object({
     notFoundTitle: z.string().describe('The 404 page title'),
     notFoundMessage: z.string().describe('The 404 page message'),
     notFoundPath: z.string().describe('The text before the path in 404 page'),
-    goHome: z.string().describe('The button text to go to home page')
+    goHome: z.string().describe('The button text to go to home page'),
+    errorTitle: z.string().describe('The error boundary title'),
+    errorMessage: z.string().describe('The error boundary message'),
+    errorDetails: z.string().describe('The error details label'),
+    errorReset: z.string().describe('The error reset button text')
   }),
   layout: z.object({
     title: z.string().describe('The layout title'),
@@ -22,6 +26,17 @@ export const translationSchema = z.object({
   home: z.object({
     welcome: z.string().describe('The home page welcome message'),
     description: z.string().describe('The home page description')
+  }),
+  gomoku: z.object({
+    title: z.string().describe('The gomoku game title'),
+    reset: z.string().describe('The reset game button text'),
+    undo: z.string().describe('The undo move button text'),
+    currentPlayer: z.string().describe('The current player label'),
+    black: z.string().describe('The black player name'),
+    white: z.string().describe('The white player name'),
+    blackWin: z.string().describe('The black player win message'),
+    whiteWin: z.string().describe('The white player win message'),
+    draw: z.string().describe('The draw game message')
   })
 });
 

@@ -1,27 +1,43 @@
-import { useI18n } from '@/hooks';
+import { Loading } from '@/components/loading';
 import { supportBrowserRouter } from '@/utils/support-router';
-import { useActionState, useEffect, useMemo, type FC } from 'react';
+import { useEffect, useMemo, useState, type FC } from 'react';
 import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router';
 import { routes } from '.';
 
 const LiryRouter: FC = () => {
-  const { t } = useI18n('common');
-  const [support, checkSupport, isPending] = useActionState(supportBrowserRouter, false);
+  const [support, setSupport] = useState<boolean | null>(null);
+
   useEffect(() => {
+    let cancelled = false;
+
+    const checkSupport = async () => {
+      const result = await supportBrowserRouter();
+      if (!cancelled) {
+        setSupport(result);
+      }
+    };
+
     checkSupport();
-  }, [checkSupport]);
-  // const support = use(supportBrowserRouter());
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const router = useMemo(() => {
+    if (support === null) {
+      return null;
+    }
     if (support) {
       return createBrowserRouter(routes);
     }
     return createHashRouter(routes);
   }, [support]);
 
-  console.log(`support: ${support}`);
-  if (isPending) {
-    return <div>{t('loading')}</div>;
+  if (support === null || router === null) {
+    return <Loading />;
   }
+
   return <RouterProvider router={router} />;
 };
 

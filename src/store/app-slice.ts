@@ -4,13 +4,11 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface AppState {
-  count: number;
   theme: Theme;
   followSystem: boolean;
 }
 
 const initialState: AppState = {
-  count: 0,
   theme: THEMES.LIGHT,
   followSystem: true
 };
@@ -19,18 +17,6 @@ const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.count += 1;
-    },
-    decrement: (state) => {
-      state.count -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.count += action.payload;
-    },
-    reset: (state) => {
-      state.count = 0;
-    },
     setTheme: (state, action: PayloadAction<Theme>) => {
       state.theme = action.payload;
       state.followSystem = false;
@@ -50,14 +36,5 @@ const appSlice = createSlice({
   }
 });
 
-export const {
-  increment,
-  decrement,
-  incrementByAmount,
-  reset,
-  setTheme,
-  toggleTheme,
-  setFollowSystem,
-  syncSystemTheme
-} = appSlice.actions;
+export const { setTheme, toggleTheme, setFollowSystem, syncSystemTheme } = appSlice.actions;
 export default appSlice.reducer;

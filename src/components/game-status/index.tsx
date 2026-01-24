@@ -1,4 +1,5 @@
 import { GAME_STATUS, PLAYER } from '@/constants/gomoku';
+import { useI18n } from '@/hooks';
 import type { GameStatus, Player as PlayerType } from '@/typings/gomoku';
 import { Text } from '@fluentui/react-components';
 import styles from './index.module.css';
@@ -10,16 +11,18 @@ type GameStatusProps = {
 };
 
 export const GameStatusDisplay = ({ currentPlayer, status }: GameStatusProps) => {
+  const { t } = useI18n('gomoku');
+
   const getStatusText = () => {
     switch (status) {
       case GAME_STATUS.PLAYING:
-        return `当前玩家: ${currentPlayer === PLAYER.BLACK ? '黑子' : '白子'}`;
+        return `${t('currentPlayer')}: ${currentPlayer === PLAYER.BLACK ? t('black') : t('white')}`;
       case GAME_STATUS.BLACK_WIN:
-        return '黑子获胜！';
+        return t('blackWin');
       case GAME_STATUS.WHITE_WIN:
-        return '白子获胜！';
+        return t('whiteWin');
       case GAME_STATUS.DRAW:
-        return '平局！';
+        return t('draw');
       default:
         return '';
     }

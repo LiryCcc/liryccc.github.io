@@ -1,17 +1,17 @@
 import { THEMES } from '@/constants/theme';
-import type { RootState } from '@/store';
 import { store } from '@/store';
 import { syncSystemTheme } from '@/store/app-slice';
+import { useAppSelector } from '@/store/hooks';
 import { darkTheme, lightTheme } from '@/theme';
 import type { OnlyChildrenFC } from '@/typings/component';
 import { getSystemTheme, watchSystemTheme } from '@/utils/theme';
 import { FluentProvider } from '@fluentui/react-components';
 import { useEffect } from 'react';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 
 const ThemeProvider: OnlyChildrenFC = ({ children }) => {
-  const theme = useSelector((state: RootState) => state.app.theme);
-  const followSystem = useSelector((state: RootState) => state.app.followSystem);
+  const theme = useAppSelector((state) => state.app.theme);
+  const followSystem = useAppSelector((state) => state.app.followSystem);
   const fluentTheme = theme === THEMES.DARK ? darkTheme : lightTheme;
 
   useEffect(() => {
