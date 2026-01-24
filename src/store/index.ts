@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import appReducer from './app-slice';
-import gomokuReducer from './gomoku-slice';
 
 export const store = configureStore({
   reducer: {
-    app: appReducer,
-    gomoku: gomokuReducer
+    app: appReducer
   }
 });
 

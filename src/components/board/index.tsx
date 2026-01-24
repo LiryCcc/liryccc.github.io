@@ -1,4 +1,4 @@
-import { BOARD_SIZE, PLAYER } from '@/constants/gomoku';
+import { BOARD_SIZE, GOMOKU_POINT_STATUS } from '@/constants/gomoku';
 import type { Board, Position } from '@/typings/gomoku';
 import { Cell } from './cell';
 import styles from './index.module.css';
@@ -11,7 +11,7 @@ type BoardProps = {
 
 export const GameBoard = ({ board, onCellClick, disabled = false }: BoardProps) => {
   const handleCellClick = (row: number, col: number) => {
-    if (!disabled && board[row]![col] === PLAYER.NONE) {
+    if (!disabled && board[row]![col] === GOMOKU_POINT_STATUS.NONE) {
       onCellClick({ row, col });
     }
   };

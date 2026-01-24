@@ -1,5 +1,5 @@
 import { Stone } from '@/components/stone';
-import { PLAYER } from '@/constants/gomoku';
+import { GOMOKU_POINT_STATUS } from '@/constants/gomoku';
 import type { Player } from '@/typings/gomoku';
 import styles from './cell.module.css';
 
@@ -26,7 +26,7 @@ export const Cell = ({
   isFirstCol,
   isLastCol
 }: CellProps) => {
-  const hasStone = player !== PLAYER.NONE;
+  const hasStone = player !== GOMOKU_POINT_STATUS.NONE;
 
   return (
     <div

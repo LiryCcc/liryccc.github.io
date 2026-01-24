@@ -1,9 +1,9 @@
 export const BOARD_SIZE = 15;
 
-export const PLAYER = {
-  NONE: 0,
-  BLACK: 1,
-  WHITE: 2
+export const GOMOKU_POINT_STATUS = {
+  NONE: 'NONE',
+  BLACK: 'BLACK',
+  WHITE: 'WHITE'
 } as const;
 
 export const GAME_STATUS = {

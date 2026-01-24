@@ -1,7 +1,7 @@
-import type { BOARD_SIZE, GAME_STATUS, PLAYER } from '@/constants/gomoku';
+import type { BOARD_SIZE, GAME_STATUS, GOMOKU_POINT_STATUS } from '@/constants/gomoku';
 
 export type BoardSize = typeof BOARD_SIZE;
-export type Player = (typeof PLAYER)[keyof typeof PLAYER];
+export type Player = (typeof GOMOKU_POINT_STATUS)[keyof typeof GOMOKU_POINT_STATUS];
 export type GameStatus = (typeof GAME_STATUS)[keyof typeof GAME_STATUS];
 
 export type Position = {
