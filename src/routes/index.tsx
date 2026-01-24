@@ -1,12 +1,12 @@
 import Layout from '@/pages/layout';
 import { lazy } from 'react';
-import type { RouteObject } from 'react-router';
+import { createBrowserRouter } from 'react-router';
 
 const Home = lazy(() => import('@/pages/home'));
 const Gomoku = lazy(() => import('@/pages/gomoku'));
 const NotFound = lazy(() => import('@/pages/not-found'));
 
-export const routes: RouteObject[] = [
+export const router = createBrowserRouter([
   {
     path: '/',
     Component: Layout,
@@ -26,4 +26,4 @@ export const routes: RouteObject[] = [
       }
     ]
   }
-];
+]);
