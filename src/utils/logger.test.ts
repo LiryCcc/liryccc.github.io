@@ -90,4 +90,58 @@ describe('logger', () => {
       expect(() => logger.error('error')).not.toThrow();
     });
   });
+
+  describe('prefix', () => {
+    it('should add prefix to log messages when provided', () => {
+      const consoleSpy = vi.spyOn(console, 'info').mockImplementation(() => {});
+      const logger = createLogger({ prefix: 'MyModule', enableConsole: true, enablePersistence: false });
+
+      logger.info('test message');
+
+      const callArgs = consoleSpy.mock.calls[0];
+      expect(callArgs).toBeDefined();
+      expect(callArgs?.[0]).toContain('[MyModule]');
+      expect(callArgs?.[0]).toContain('test message');
+
+      consoleSpy.mockRestore();
+    });
+
+    it('should not add prefix when not provided', () => {
+      const consoleSpy = vi.spyOn(console, 'info').mockImplementation(() => {});
+      const logger = createLogger({ enableConsole: true, enablePersistence: false });
+
+      logger.info('test message');
+
+      const callArgs = consoleSpy.mock.calls[0];
+      expect(callArgs).toBeDefined();
+      const messagePart = callArgs?.[0] as string;
+      expect(messagePart).toContain('test message');
+      // 检查不包含类似 [MyModule] 这样的前缀格式（在级别标识之后）
+      const afterLevel = messagePart.split(']').slice(2).join(']');
+      expect(afterLevel.trim()).toBe('test message');
+
+      consoleSpy.mockRestore();
+    });
+
+    it('should include prefix in all log levels', () => {
+      const consoleSpy = vi.spyOn(console, 'debug').mockImplementation(() => {});
+      const logger = createLogger({
+        prefix: 'Test',
+        level: LOG_LEVELS.DEBUG,
+        enableConsole: true,
+        enablePersistence: false
+      });
+
+      logger.debug('debug message');
+      logger.info('info message');
+      logger.warn('warn message');
+      logger.error('error message');
+
+      expect(consoleSpy).toHaveBeenCalled();
+      const callArgs = consoleSpy.mock.calls[0];
+      expect(callArgs?.[0]).toContain('[Test]');
+
+      consoleSpy.mockRestore();
+    });
+  });
 });

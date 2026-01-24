@@ -144,10 +144,14 @@ const cleanupOldLogs = async (maxEntries: number): Promise<void> => {
 };
 
 export const createLogger = (config: LoggerConfig = {}): Logger => {
-  const { level = LOG_LEVELS.INFO, enableConsole = true, enablePersistence = true, maxEntries = 1000 } = config;
+  const { level = LOG_LEVELS.INFO, enableConsole = true, enablePersistence = true, maxEntries = 1000, prefix } = config;
 
   const shouldLog = (logLevel: LogLevel): boolean => {
     return LEVEL_PRIORITY[logLevel] >= LEVEL_PRIORITY[level];
+  };
+
+  const formatMessage = (message: string): string => {
+    return prefix ? `[${prefix}] ${message}` : message;
   };
 
   const log = async (logLevel: LogLevel, message: string, dataOrError?: unknown): Promise<void> => {
@@ -157,11 +161,13 @@ export const createLogger = (config: LoggerConfig = {}): Logger => {
 
     const timestamp = Date.now();
     const id = `${timestamp}-${Math.random().toString(36).substring(2, 9)}`;
+    const formattedMessage = formatMessage(message);
     const entry: LogEntry = {
       id,
       level: logLevel,
-      message,
+      message: formattedMessage,
       timestamp,
+      ...(prefix ? { prefix } : {}),
       ...(dataOrError instanceof Error
         ? { stack: dataOrError.stack }
         : dataOrError !== undefined
@@ -173,7 +179,7 @@ export const createLogger = (config: LoggerConfig = {}): Logger => {
     if (enableConsole) {
       const timestampStr = dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss.SSS');
       const levelStr = logLevel.toUpperCase();
-      const logMessage = `[${timestampStr}] [${levelStr}] ${message}`;
+      const logMessage = `[${timestampStr}] [${levelStr}] ${formattedMessage}`;
       const logData = dataOrError instanceof Error ? dataOrError : dataOrError;
 
       if (logLevel === LOG_LEVELS.ERROR) {

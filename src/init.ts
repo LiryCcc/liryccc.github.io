@@ -7,6 +7,7 @@ import { syncSystemTheme } from './store/app-slice';
 import { en } from './translations/en';
 import { translationSchema } from './translations/schema';
 import { zh } from './translations/zh';
+import { createLogger } from './utils/logger';
 import { getSystemTheme } from './utils/theme';
 
 const initI18n = () => {
@@ -19,6 +20,10 @@ const initI18n = () => {
     zhTranslations: zhTranslations.data,
     enTranslations: enTranslations.data
   };
+};
+
+const initLogger = async () => {
+  window.logger = window.logger || createLogger({});
 };
 
 const init = async () => {
@@ -39,6 +44,7 @@ const init = async () => {
       }
     });
 
+  initLogger();
   // 初始化时同步系统主题
   const systemTheme = getSystemTheme();
   store.dispatch(syncSystemTheme(systemTheme));

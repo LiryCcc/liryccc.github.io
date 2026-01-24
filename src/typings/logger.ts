@@ -8,6 +8,7 @@ export type LogEntry = {
   level: LogLevel;
   message: string;
   timestamp: number;
+  prefix?: string | undefined;
   data?: unknown;
   stack?: string | undefined;
 };
@@ -17,6 +18,7 @@ export type LoggerConfig = {
   enableConsole?: boolean;
   enablePersistence?: boolean;
   maxEntries?: number;
+  prefix?: string;
 };
 
 export type Logger = {

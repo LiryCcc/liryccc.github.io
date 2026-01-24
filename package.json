@@ -16,6 +16,7 @@
     "lint:type": "tsc -b",
     "prepare": "simple-git-hooks",
     "preview": "vite preview",
+    "test": "pnpm test:coverage",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest"
   },
