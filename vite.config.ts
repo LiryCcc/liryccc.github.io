@@ -23,6 +23,9 @@ export default defineConfig({
       '@': resolve(import.meta.dirname, 'src')
     }
   },
+  build: {
+    sourcemap: true
+  },
   server: {
     port: 23825,
     host: '0.0.0.0'
