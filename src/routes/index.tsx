@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'dev',
-        Component: import.meta.env.DEV ? Dev : NotFound
+        Component: Dev
       },
       {
         path: '*',
